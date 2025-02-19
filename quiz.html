@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Skin Type Quiz</title>
+    <link rel="stylesheet" href="styles.css"> <!-- Link to CSS -->
+    <style>
+        body {
+            background-color: #B3E5FC; /* Pastel sky blue */
+            background-image: url('images/water_droplets.jpg'); /* Water droplets background */
+            background-size: cover;
+            background-position: center;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            margin: 0;
+        }
+        .quiz-container {
+            width: 60%;
+            max-width: 600px;
+            background: rgba(255, 255, 255, 0.85);
+            padding: 20px;
+            border-radius: 10px;
+            text-align: left; /* Left-align text */
+            box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.1);
+        }
+        .question {
+            font-size: 1.4em;
+            margin-bottom: 15px;
+        }
+        .option {
+            display: block;
+            width: 100%;
+            background-color: #ADD8E6; /* Light blue */
+            padding: 10px;
+            margin: 10px 0;
+            border-radius: 5px;
+            border: none;
+            font-size: 1.2em;
+            cursor: pointer;
+            text-align: left; /* Left-align button text */
+        }
+        .option:hover {
+            background-color: #87CEEB; /* Slightly darker blue on hover */
+        }
+    </style>
+</head>
+<body>
+    <div class="quiz-container" id="quiz-step-1">
+        <h1>Find Your Skin Type</h1>
+        <p class="question">Choose the option that describes your skin:</p>
+        <button class="option" onclick="nextStep(2, 'dry')">1. My skin always feels dry and tight</button>
+        <button class="option" onclick="nextStep(2, 'oily')">2. My skin gets oily after a while</button>
+        <button class="option" onclick="nextStep(2, 'combination')">3. My T-zone (forehead, nose, chin) gets oily, but the rest is dry</button>
+        <button class="option" onclick="nextStep(2, 'normal')">4. My skin is neither oily nor dry</button>
+        <button class="option" onclick="nextStep(2, 'sensitive')">5. My skin reacts easily to products</button>
+    </div>
+
+    <div class="quiz-container" id="quiz-step-2" style="display: none;">
+        <h1>How does your skin feel after washing your face?</h1>
+        <button class="option" onclick="showResult('oily')">1. It feels fine at first but gets greasy after some time</button>
+        <button class="option" onclick="showResult('dry')">2. It feels tight and dry immediately</button>
+        <button class="option" onclick="showResult('combination')">3. It feels dry in some places but oily in others</button>
+        <button class="option" onclick="showResult('normal')">4. It feels fresh and normal</button>
+    </div>
+
+    <div class="quiz-container" id="quiz-result" style="display: none;">
+        <h1>Your Skin Type</h1>
+        <p id="result-text"></p>
+    </div>
+
+    <script>
+        let selectedSkinType = "";
+
+        function nextStep(step, skinType) {
+            selectedSkinType = skinType;
+            document.getElementById("quiz-step-1").style.display = "none";
+            document.getElementById("quiz-step-2").style.display = "block";
+        }
+
+        function showResult(washResponse) {
+            let finalSkinType = "";
+
+            if (selectedSkinType === "oily" || washResponse === "oily") {
+                finalSkinType = "Oily Skin. Your skin produces excess oil, so use lightweight, oil-free products.";
+            } else if (selectedSkinType === "dry" || washResponse === "dry") {
+                finalSkinType = "Dry Skin. Your skin lacks moisture, so hydration is key.";
+            } else if (selectedSkinType === "combination" || washResponse === "combination") {
+                finalSkinType = "Combination Skin. Some areas are oily, while others are dry.";
+            } else if (selectedSkinType === "sensitive") {
+                finalSkinType = "Sensitive Skin. Your skin reacts easily, so use gentle, fragrance-free products.";
+            } else {
+                finalSkinType = "Normal Skin. You have balanced skin and can use a variety of products.";
+            }
+
+            document.getElementById("quiz-step-2").style.display = "none";
+            document.getElementById("quiz-result").style.display = "block";
+            document.getElementById("result-text").innerText = finalSkinType;
+        }
+    </script>
+</body>
+</html>

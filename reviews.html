@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Product Reviews</title>
+    <link rel="stylesheet" href="styles.css">
+    <style>
+        body {
+            background-color: #B3E5FC;
+            text-align: center;
+            font-style: italic;
+            font-weight: bold;
+            background-image: url('images/water_droplets.jpg');
+            background-size: cover;
+            background-position: center;
+        }
+        .container {
+            max-width: 900px;
+            margin: auto;
+            padding: 20px;
+            background: rgba(255, 255, 255, 0.8);
+            border-radius: 10px;
+        }
+        .review {
+            background: white;
+            padding: 10px;
+            margin: 10px 0;
+            border-radius: 10px;
+        }
+        .review strong {
+            color: #007BFF;
+        }
+        textarea {
+            width: 100%;
+            padding: 10px;
+            margin: 10px 0;
+            border-radius: 5px;
+            border: 1px solid #ccc;
+        }
+        button {
+            background: #007BFF;
+            color: white;
+            border: none;
+            padding: 10px 15px;
+            cursor: pointer;
+            border-radius: 5px;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>Product Reviews</h1>
+        <p>Share your experience with skincare products!</p>
+
+        <textarea id="review-text" placeholder="Write your review here..."></textarea>
+        <br>
+        <button onclick="submitReview()">Submit Review</button>
+
+        <h2>User Reviews</h2>
+        <div id="reviews-section">
+            <!-- Reviews will be added here dynamically -->
+        </div>
+    </div>
+
+    <script>
+        function submitReview() {
+            let reviewText = document.getElementById("review-text").value.trim();
+            if (reviewText === "") return;
+
+            let reviewSection = document.getElementById("reviews-section");
+            let reviewDiv = document.createElement("div");
+            reviewDiv.className = "review";
+            reviewDiv.innerHTML = `<strong>User:</strong> ${reviewText}`;
+            reviewSection.prepend(reviewDiv);
+
+            document.getElementById("review-text").value = "";
+        }
+    </script>
+</body>
+</html>

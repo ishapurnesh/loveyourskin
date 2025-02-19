@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>LoveYourSkin</title>
+    <link rel="stylesheet" href="styles.css"> <!-- Link to CSS -->
+    <style>
+        body {
+            
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            background-color: #B3E5FC; /* Soft pastel sky blue */
+            font-style: italic; font-weight: bold; /* Cursive calligraphy font */
+            text-align: center;
+            background-image: url('images/water_droplets.jpg'); /* Add water droplets background */
+            background-size: cover;
+            background-position: center;
+        }
+        .container {
+            max-width: 600px;
+            background: rgba(255, 255, 255, 0.8);
+            padding: 20px;
+            border-radius: 10px;
+        }
+        img {
+            width: 90%; /* Enlarged image */
+            display: block;
+            margin: 0 auto 20px auto;
+            border-radius: 10px;
+            opacity: 0.9; /* Slight transparency to blend with background */
+            box-shadow: none; border: none; background: transparent;
+            border: none; /* Ensure no black outline */
+        }
+        p {
+            line-height: 1.8; /* Spacing after each full stop */
+        }
+        h1 {
+            font-size: 2em;
+        }
+        .start-btn {
+            background-color: #007BFF; /* Blue button */
+            color: white;
+            padding: 10px 20px;
+            border: none;
+            border-radius: 5px;
+            font-size: 1.2em;
+            cursor: pointer;
+        }
+        .start-btn:hover {
+            background-color: #0056b3;
+        }
+    </style>
+    <link href="https://fonts.googleapis.com/css2?family=Dancing+Script:wght@400;700&display=swap" rel="stylesheet">
+</head>
+<body>
+    <div class="container">
+        <img src="images/skincare_image.jpg" alt="Girl applying serum">
+        <h1>Your skin needs love too</h1>
+        <p>With all the daily hustles.  Our skin faces a lot of challenges.  Let's take care of our skin by keeping it simple in 4 steps - Cleanse, Serum, Moisturize, Sunscreen.</p>
+        <button class="start-btn" onclick="startQuiz()">Start</button>
+    </div>
+
+    <script src="script.js"></script> <!-- Link to JavaScript -->
+</body>
+</html> 
+
